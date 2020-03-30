@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="799426f4-51f3-48d0-9692-af822c168890" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0002_comment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0003_delete_comment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0004_car.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0005_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0006_repair_work.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0007_repair_recommendations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0008_remove_repair_recommendations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0009_remove_repair_repair_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0010_car_description.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/migrations/0011_auto_20200329_0930.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sto/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto03/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sto03/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto03/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sto03/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sto/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sto/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,20 +17,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sto/views.py">
+        <entry file="file://$PROJECT_DIR$/sto/templates/clients/list_clients.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="162">
+              <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sto/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sto03/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="172">
@@ -56,8 +54,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sto/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,11 +139,9 @@
       <list>
         <option value="$PROJECT_DIR$/sto/templates/cars/create_car.html" />
         <option value="$PROJECT_DIR$/sto/templates/repairs/create_repair.html" />
-        <option value="$PROJECT_DIR$/sto/urls.py" />
         <option value="$PROJECT_DIR$/sto/forms.py" />
         <option value="$PROJECT_DIR$/sto/admin.py" />
         <option value="$PROJECT_DIR$/sto/templates/articles/article_detail.html" />
-        <option value="$PROJECT_DIR$/sto/views.py" />
         <option value="$PROJECT_DIR$/sto/templates/repairs/list_repairs.html" />
         <option value="$PROJECT_DIR$/sto/templates/repairs/detail_repair.html" />
         <option value="$PROJECT_DIR$/sto/templates/clients/list_clients.html" />
@@ -158,6 +157,8 @@
         <option value="$PROJECT_DIR$/sto03/urls.py" />
         <option value="$PROJECT_DIR$/sto/models.py" />
         <option value="$PROJECT_DIR$/sto03/settings.py" />
+        <option value="$PROJECT_DIR$/sto/urls.py" />
+        <option value="$PROJECT_DIR$/sto/views.py" />
       </list>
     </option>
   </component>
@@ -190,6 +191,19 @@
               <item name="sto03" type="462c0819:PsiDirectoryNode" />
               <item name="sto" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sto03" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sto03" type="462c0819:PsiDirectoryNode" />
+              <item name="sto" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sto03" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sto03" type="462c0819:PsiDirectoryNode" />
+              <item name="sto" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="clients" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sto03" type="b2602c69:ProjectViewProjectNode" />
@@ -268,12 +282,12 @@
       <workItem from="1585452080204" duration="16416000" />
       <workItem from="1585545340519" duration="16097000" />
       <workItem from="1585563825015" duration="167000" />
-      <workItem from="1585566261609" duration="716000" />
+      <workItem from="1585566261609" duration="2280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102544000" />
+    <option name="totallyTimeSpent" value="104108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -397,13 +411,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sto/templates/01.html" />
-    <entry file="file://$PROJECT_DIR$/sto/templates/clients/list_clients.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sto/templates/cars/list_cars.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
@@ -456,23 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sto03/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#629#661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sto/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sto/templates/articles/articles_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
@@ -483,13 +473,6 @@
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/sto/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sto/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -497,13 +480,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sto/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -524,6 +500,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sto/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sto03/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#629#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sto/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sto/templates/clients/list_clients.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sto/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

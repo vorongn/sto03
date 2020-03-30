@@ -38,11 +38,8 @@ class ClientsView(ListView):
 
         if self.request.GET.get('q'):
             query = self.request.GET.get('q')
-            query = query.lower()
-
         else:
             query = ''
-
         clients = Client.objects.all().order_by('first_name')
         clients = clients.filter(Q(last_name__icontains=query)
                                  | Q(first_name__icontains=query)
@@ -118,6 +115,9 @@ def create_car(request):
 
 
 def repairs(request):
+    """
+    список ремонтов
+    """
     latest_repair_list = Repair.objects.order_by('-id')
     return render(request, 'repairs/list_repairs.html', {'latest_repair_list': latest_repair_list})
 
@@ -146,7 +146,7 @@ def create_repair(request):
 
 
 def create_works(request):
-    """"добавить клиента"""
+    """"добавить работы"""
     if request.method == 'POST':
         work_form = forms.WorksForm(request.POST)
         if work_form.is_valid():
