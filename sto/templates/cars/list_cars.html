@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Список автомбилей{% endblock %}
+
+{% block content %}
+    <div class="container list-repair">
+        <div class="row ">
+            {% if user.is_authenticated %}
+                <div class="col-6">
+                    <form action="{% url 'sto:cars' %}" method="get" class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" name="q" type="text"
+                               placeholder="{{ search_query }}">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Искать / сброс</button>
+                    </form>
+
+                </div>
+                <div class="col-6 text-right">
+{#                    <a href="{% url 'sto:create_car' %}" class="btn btn-outline-warning my-2 my-sm-0">+ авто</a>#}
+                </div>
+                <div class="col-12">
+                    <hr>
+                </div>
+
+                {% if latest_car_list %}
+                    <table class="table table-hover table-dark table-striped repair">
+                        <thead>
+                        <tr>
+                            <th scope="col">госномер</th>
+                            <th scope="col">марка</th>
+                            <th scope="col">модель</th>
+                            <th scope="col">год</th>
+                            <th scope="col">двс</th>
+                            <th scope="col">кп</th>
+                        </tr>
+                        </thead>
+                        {% for car in latest_car_list %}
+                            <tr>
+                                <td class="align-middle"><a
+                                        href="{% url 'sto:car_detail' car.id %}">{{ car.number }}</a><br></td>
+
+                                <td class="align-middle">{{ car.brend_car }}</td>
+                                <td class="align-middle">{{ car.model_car }}</td>
+                                <td class="align-middle">{{ car.year }}</td>
+                                <td class="align-middle">{{ car.motor }}</td>
+                                <td class="align-middle">{{ car.transmission }}</td>
+                            </tr>
+                            <hr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    Нет авто в базе
+                {% endif %}
+            {% else %}
+                </div>
+                </div>
+                Вы не авторизованы
+            {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Список проведённых ремонтов{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <div class="container list-repair">
+       
+            <div class="row">
+
+                    {% if latest_repair_list %}
+                          <table class="table table-hover table-dark table-striped repair">
+                          <thead>
+                          <tr>
+                              <th scope="col">Дата</th>
+                              <th scope="col">Госномер</th>
+                              <th scope="col">Цена</th>
+                              <th scope="col">Работы</th>
+                          </tr>
+                          </thead>
+                        {% for repair in latest_repair_list %}
+                            <tr>
+                                <td class="align-middle"><a href="{% url 'sto:repair_detail' repair.id %}">{{ repair.date }}</a><br></td>
+                                <td class="align-middle">{{ repair.car }}</td>
+                                <td class="align-middle">{{ repair.repair_cost }} BYN</td>
+                                <td class="align-middle">
+                                    {% for work in repair.repworks.all %}
+                                        <p class="repair">{{ work.work }}</p>
+                                    {% endfor %}
+
+                                </td>
+                            </tr>
+                                    {% endfor %}
+                        </table>
+                    {% else %}
+                        На данный момент в базе нет ремонтов
+                    {% endif %}
+            </div>
+        </div>
+    {% else %}
+        Вы не авторизованы
+    {% endif %}
+
+{% endblock %}

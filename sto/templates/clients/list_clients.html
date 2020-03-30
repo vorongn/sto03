@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Список клиентов{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="contaner">
+            <div class="row">
+                <div class="col-6">
+                    <form action="{% url 'sto:clients' %}" method="get" class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" name="q" type="text"
+                               placeholder="{{ search_query }}">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Искать / сброс</button>
+                    </form>
+                </div>
+                <div class="col-6 text-right">
+{#                    <a href="{% url 'sto:create_client' %}" class="btn btn-outline-warning my-2 my-sm-0">+ клиента</a>#}
+                </div>
+
+            </div>
+        </div>
+        {% if client_list %}
+            <div class="container">
+
+                <div class="row m-b-2 m-t-2 client-list">
+
+                    {% for client in client_list %}
+                        <div class="col-12 row align-items-center">
+                            <div class="col-6 col-md-2 img-block">
+                                <a href="{% url 'sto:client_detail' client.id %}">
+                                    <img src="/media/{{ client.photo }}"
+                                         class="img-thumbnail"
+                                         alt="{{ client.first_name }} {{ client.last_name }}">
+                                </a>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <a href="{% url 'sto:client_detail' client.id %}">
+                                    {{ client.first_name }}<br>
+                                    {{ client.last_name }}</a>
+                            </div>
+                            <div class="col-12 col-md-3">
+
+                                {% for car in client.cars.all %}
+                                    <a href="{% url 'sto:car_detail' car.id %}">{{ car.number }} </a>(
+                                    {{ car.brend_car }}- {{ car.model_car }})<br>
+                                {% endfor %}
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <p><span>статус:</span><br>{{ client.status }}</p>
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <a href="tel:{{ client.phone_number }}">{{ client.phone_number }}</a>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% else %}
+            не найдены клиенты
+        {% endif %}
+    {% else %}
+        Вы не авторизованы
+    {% endif %}
+{% endblock %}

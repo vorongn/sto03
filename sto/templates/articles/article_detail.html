@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.article_title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ article.article_title }}</h2>
+    {% autoescape off %}
+    <p>{{ article.article_text }}</p>
+    {% endautoescape %}
+    <em>{{ article.pub_date }}</em>
+{% endblock %}

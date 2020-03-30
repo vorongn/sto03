@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Клиент {{ client_detail.first_name }} {{ client_detail.last_name }}{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="row client-detail">
+            <div class="col-12 col-md-6">
+                <a href="{{request.META.HTTP_REFERER}}"><< назад</a>
+                <h2>{{ client_detail.first_name }} {{ client_detail.last_name }}</h2>
+            </div>
+            <div class="col-12 col-md-6 text-right">
+                <em>{{ client_detail.date_create }}</em>
+            </div>
+            <div class="col-12 col-md-6">
+                <p><span>телефон: </span>
+                    <a href="tel:{{ client_detail.phone_number }}">
+                        {{ client_detail.phone_number }}</a></p>
+                <p><span>статус: </span>{{ client_detail.status }}</p>
+                <p><span> описание: </span><br>{{ client_detail.description|linebreaks }}</p>
+
+            </div>
+            <div class="col-12 col-md-6 img-block">
+                <img src="/media/{{ client_detail.photo }}" class="img-thumbnail"
+                     alt="{{ client_detail.first_name }} {{ client_detail.last_name }}">
+            </div>
+            <div class="col-6 col-md-12">
+                <p><span>автомобили: </span><br>
+                <table class="table table-hover table-dark table-striped repair">
+                          <thead>
+                          <tr>
+                              <th scope="col">госномер</th>
+                              <th scope="col">марка</th>
+                              <th scope="col">модель</th>
+                              <th scope="col">мотор</th>
+                              <th scope="col">КП</th>
+                              <th scope="col">год</th>
+                          </tr>
+                          </thead>
+                    {% for car in client_detail.cars.all %}
+                        <tr>
+
+                            <td class="align-middle"><a href="{% url 'sto:car_detail' car.id %}">{{ car }}</a><br></td>
+
+                        <td class="align-middle">{{ car.brend_car }}</td>
+                        <td class="align-middle">{{ car.model_car }}</td>
+                        <td class="align-middle">{{ car.motor }}</td>
+                        <td class="align-middle">{{ car.transmission }}</td>
+                        <td class="align-middle">{{ car.year }}</td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+                </p>
+            </div>
+        </div>
+    {% else %}
+        Вы не авторизованы
+    {% endif %}
+{% endblock %}

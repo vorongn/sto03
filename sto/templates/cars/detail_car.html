@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}автомобиль {{ car.number }}{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container auto-detail">
+            <div class="row ">
+                <div class="col-12 col-md-6 auto-detail-gn">
+                    <a href="{{ request.META.HTTP_REFERER }}"><< назад</a>
+                    <p><span>Гос номер:</span> {{ car.number.upper }}</p>
+                </div>
+
+                <div class="col-12 col-md-6 text-right p-a">
+                    {% for client in clients %}
+                        <p><a href="{% url 'sto:client_detail' client.id %}">{{ client }}</a></p>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="row m-b-3">
+                <div class="col-12 col-md-3 car-left-colum">
+                    <div class="info">
+                        <p class="title-block">Основная информация:</p>
+                        <p><span>VIN: </span>{{ car.vin }}</p>
+                        <p><span>Марка: </span>{{ car.brend_car }}</p>
+                        <p><span>Модель: </span>{{ car.model_car }}</p>
+                        <p><span>год выпуска: </span>{{ car.year }}</p>
+                        <p><span>Дигатель: </span>{{ car.motor }}</p>
+                        <p><span>КП: </span>{{ car.transmission }}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 car-center-colum">
+                    <p class="title-block">
+                        <img src="/media/{{ car.photo }}" class="img-thumbnail">
+                    </p>
+                    <div class="photo">
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 car-right-colum">
+                    <div class="info">
+
+                        <p> <span>Описание: </span>{{ car.description|linebreaks }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-12">
+{#                    <div class="col-6 text-right">#}
+{#                        <a href="{% url 'sto:create_repair' %}" class="btn btn-outline-warning my-2 my-sm-0">#}
+{#                            +ремонт</a>#}
+{#                    </div>#}
+                    {% for client in all_clients %}
+
+                        {{ client.cars }}
+
+                    {% endfor %}
+                    <div class="info"><p>СПИСК РЕМОНТОВ</p>
+                        <!-- -->
+                        {% if all_repairs %}
+                            <table class="table table-hover table-dark table-striped repair">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Дата</th>
+                                    <th scope="col">Цена</th>
+                                    <th scope="col">Работы</th>
+                                </tr>
+                                </thead>
+                                {% for repair in all_repairs %}
+                                    <tr>
+                                        <td class="align-middle">
+                                            <a href="{% url 'sto:repair_detail' repair.id %}">{{ repair.date }}</a>
+                                        </td>
+                                        <td class="align-middle">{{ repair.repair_cost }} BYN</td>
+                                        <td class="align-middle">
+                                            {% for work in repair.repworks.all %}
+                                                <p class="repair">{{ work.work }}</p>
+                                            {% endfor %}
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            Нет ремонтов
+                        {% endif %}
+                        <!-- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        Вы не авторизованы
+    {% endif %}
+
+{% endblock %}

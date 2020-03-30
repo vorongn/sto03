@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Ремонт {{repair.date}} {{repair.car }}{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <div class="row repair-detail">
+
+            <div class="col-12 col-sm-6 repair-date ">
+                <a href="{{request.META.HTTP_REFERER}}"><< назад</a>
+                <p><span>Дата ремонта: </span>{{ repair.date }}</p>
+                 {% for client in clients %}
+                <p><span>клиент: </span><a href="{% url 'sto:client_detail' client.id %}">
+                    {{ client.first_name }} {{ client.last_name }}</a></p>
+                {% endfor %}
+            </div>
+
+            <div class="col-12 col-sm-6 repair-cost text-right ">
+                <p ><span>стоимость:<br></span>{{ repair.repair_cost }} BYN</p>
+
+            </div>
+
+
+            <div class="col-12 col-sm-4 repair-car-info">
+                <h3>Авто:</h3>
+                <p><span>госномер: </span><a href="{% url 'sto:car_detail' repair.car.id %}">{{ repair.car }}</a></p>
+                <p><span>VIN: </span>{{ repair.car.vin }}</p>
+
+                <p><span>марка: </span>{{ repair.car.brend_car}}</p>
+                <p><span>модель: </span>{{ repair.car.model_car}}</p>
+                <p><span>год: </span>{{ repair.car.year}}</p>
+                <p><span>двигатель: </span> {{ repair.car.motor }}</p>
+                <p><span>КП: </span></span> {{ repair.car.transmission }}</p>
+                <p><span>пробег: </span>{{ repair.car_mileage }} км</p>
+            </div>
+        <div class="col-12 col-sm-4">
+            <div><img src="/media/{{ repair.car.photo}}" class="img-thumbnail"></div>
+        </div>
+            <div class="col-12 col-sm-4">
+                <p>{{ repair.car.description|linebreaks }}</p>
+            </div>
+
+
+
+            <div class="col-12 col-md-6 repair-works">
+                <h3>Выполненные работы:</h3>
+                    <ul>
+                    {% for work in repair.repworks.all %}
+
+                        <li> {{ work.work }}</li>
+                        {% endfor %}
+
+                    </ul>
+
+            </div>
+
+            <div class="col-12 col-md-6 repair-description">
+                <h3>Дополнительно по ремонту:</h3>
+                 <p>{{ repair.description|linebreaks }}</p>
+            </div>
+
+            <div class="container gallery repair-photo">
+            <h3>фото ремонта:</h3>
+                <div class="row">
+                    {% if repair.photo01 != 'repairs/nophoto.png' %}
+                        <div class="col-md-4 thumb">
+                           <a data-fancybox="images" href="/media/{{ repair.photo01 }}"> <img src="/media/{{ repair.photo01 }}" class="img-thumbnail"></a>
+                        </div>
+                     {% endif %}
+                     {% if repair.photo02  != 'repairs/nophoto.png'  %}
+                        <div class="col-md-4 thumb">
+                           <a data-fancybox="images" href="/media/{{ repair.photo02 }}"> <img src="/media/{{ repair.photo02 }}" class="img-thumbnail"></a>
+                        </div>
+                      {% endif %}
+                     {% if repair.photo02  != 'repairs/nophoto.png'  %}
+                        <div class="col-md-4 thumb">
+                           <a data-fancybox="images" href="/media/{{ repair.photo03 }}"> <img src="/media/{{ repair.photo03 }}" class="img-thumbnail"></a>
+                        </div>
+                      {% endif %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        Вы не авторизованы
+
+    {% endif %}
+{% endblock %}
