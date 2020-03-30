@@ -12,9 +12,13 @@
                 </div>
 
                 <div class="col-12 col-md-6 text-right p-a">
-                    {% for client in clients %}
-                        <p><a href="{% url 'sto:client_detail' client.id %}">{{ client }}</a></p>
-                    {% endfor %}
+                    {% if clients %}
+                        <p>Клиент(ы):<br>
+                            {% for client in clients %}
+                                <a href="{% url 'sto:client_detail' client.id %}">{{ client }}</a><br>
+                            {% endfor %}
+                        </p>
+                    {% endif %}
                 </div>
 
             </div>
@@ -32,7 +36,7 @@
                 </div>
                 <div class="col-12 col-md-6 car-center-colum">
                     <p class="title-block">
-                        <img src="/media/{{ car.photo }}" class="img-thumbnail">
+                        <img src="/media/{{ car.photo }}" class="img-thumbnail" alt="{{ car.number }}">
                     </p>
                     <div class="photo">
 
@@ -41,16 +45,16 @@
                 <div class="col-12 col-md-3 car-right-colum">
                     <div class="info">
 
-                        <p> <span>Описание: </span>{{ car.description|linebreaks }}</p>
+                        <p><span>Описание: </span>{{ car.description|linebreaks }}</p>
                     </div>
                 </div>
             </div>
             <div class="row mt-3 mb-3">
                 <div class="col-12">
-{#                    <div class="col-6 text-right">#}
-{#                        <a href="{% url 'sto:create_repair' %}" class="btn btn-outline-warning my-2 my-sm-0">#}
-{#                            +ремонт</a>#}
-{#                    </div>#}
+                    {#                    <div class="col-6 text-right">#}
+                    {#                        <a href="{% url 'sto:create_repair' %}" class="btn btn-outline-warning my-2 my-sm-0">#}
+                    {#                            +ремонт</a>#}
+                    {#                    </div>#}
                     {% for client in all_clients %}
 
                         {{ client.cars }}

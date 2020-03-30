@@ -3,10 +3,9 @@ from django.shortcuts import render
 from .models import Article, Client, Car, Repair
 from django.db.models import Q
 from . import forms
-from django.urls import reverse
 from django.views.generic import View, ListView
-from django.db.models.functions import Lower
-
+# from django.db.models.functions import Lower
+# from django.urls import reverse
 
 # Create your views here.
 
